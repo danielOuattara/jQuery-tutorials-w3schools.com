@@ -1,0 +1,334 @@
+<!----------------------------------------------------
+Daniel OUATTARA- daniel.ouattara_AT_gmx.com
+05 06 2020
+jQuery Tutorial : https://www.w3schools.com/jquery/
+----------------------------------------------------->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <title>jQuery Selectors</title>
+    </head>
+    <body>
+        <h1>jQuery Selectors.</h1><hr/>
+
+<!-- jQuery selectors are one of the most important parts of the jQuery 
+library.
+
+
+Functions In a Separate File
+=============================
+
+If your website contains a lot of pages, and you want your jQuery functions to be 
+easy to maintain, you can put your jQuery functions in a separate .js file.
+
+When we demonstrate jQuery in this tutorial, the functions are added directly into
+the <head> or <body> sections. However, sometimes it is preferable to place them in a separate 
+file, like this (use the src attribute to refer to the .js file):
+
+______________________________________________________________________________________
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="my_jquery_functions.js"></script>
+</head>
+______________________________________________________________________________________
+
+
+jQuery Selectors
+==================
+
+jQuery 'selectors' allow you to select and manipulate HTML element(s).
+
+jQuery selectors are used to "find" (or select) HTML elements based on their
+'name', 'id', 'classes', 'types', 'attributes', 'values of attributes', ...
+
+It's based on the existing CSS Selectors, and in addition, it has some own 
+custom selectors.
+
+All selectors in jQuery start with the dollar sign and parentheses: '$()'.
+
+
+The element Selector
+======================
+
+The jQuery element selector selects elements based on its name.
+_________________________________
+    $("p")  // select all <p> elements on a page
+    $('h2')  // select all <h2> elements on a page
+    $('button')  // select all <button> element on a page
+_________________________________
+
+Example:
+--------
+When a user clicks on a button, all <p> elements will be hidden: -->
+
+    <p>This is paragraph.</p>
+    <p>All paragraph will disappear if I click on the button below</p>
+    <button id='btn01'>Click me to hide all paragraphs</button>
+
+    <script>
+        $(document).ready(function(){
+            $("#btn01").click(function(){
+                $("p").hide();
+        });
+        });
+    </script><br/>
+
+
+<!-- The #id Selector
+======================
+
+The jQuery '#id' selector uses the id attribute of an HTML tag to find the 
+specific element.
+
+An 'id' should be unique within a page, so you should use the '#id' 
+selector when you want to find a single, unique element.
+
+To find an element with a specific 'id', write a hash character, followed 
+by the 'id' of the HTML element:
+__________________________
+$("#test")
+__________________________
+
+When a user clicks on a button, the element with id="test" will be hidden:-->
+    <p id='test'>I'am a magic paragraph...</p>
+    <p>All paragraph with id='test' will disappear if I click on the button
+       below</p>
+    <button id='btn02'>Click me to hide all paragraphs with id='test'</button>
+
+    <script>
+        $(document).ready(function(){
+            $('#btn02').click(function(){
+                $("#test").hide();
+            });
+        });
+
+    </script><br/>
+
+
+<!-- The .class Selector
+===========================
+
+The jQuery .class selector can find elements with a specific class.
+
+To find elements with a specific class, write a period character, followed by the name
+of the class: 
+__________________
+$(".test")
+__________________
+
+When a user clicks on a button, the elements with class="test" will be hidden: -->
+
+        <h3 class="testing"> This is a heading</h3>
+        <p class="testing">This is also a paragraph</p>
+        <button id="btn03">Click to hide all '.test' elements</button>
+        <script>
+            $(document).ready(function(){
+                $("button").click(function(){
+                    $(".testing").hide();
+                });
+            });
+        </script><br/>
+
+<!--More Examples of jQuery Selectors
+========================================
+
+Syntax 	                   Description 	 
+---------                  -----------------                
+--------------------------------------------------------------------------------------------
+$("*")                	   Selects all elements 	
+--------------------------------------------------------------------------------------------
+$(this) 	               Selects the current HTML element 	
+--------------------------------------------------------------------------------------------
+$("p.intro") 	           Selects all <p> elements with class="intro" 	
+--------------------------------------------------------------------------------------------
+$("p:first") 	           Selects the first <p> element 	
+--------------------------------------------------------------------------------------------
+$("ul li:first") 	       Selects the first <li> element of the first <ul> 	
+--------------------------------------------------------------------------------------------
+$("ul li:first-child") 	   Selects the first <li> element of every <ul> 	
+--------------------------------------------------------------------------------------------
+$("[href]")  	           Selects all elements with an href attribute 	
+--------------------------------------------------------------------------------------------
+$("a[target='_blank']")    Selects all <a> elements with a target attribute value 
+                           equal to "_blank" 	
+--------------------------------------------------------------------------------------------
+$("a[target!='_blank']")   Selects all <a> elements with a target attribute value 
+                           NOT equal to "_blank" 	
+--------------------------------------------------------------------------------------------
+$(":button") 	           Selects all <button> elements and <input> elements of 
+                           type="button" 	
+--------------------------------------------------------------------------------------------
+$("tr:even") 	           Selects all even <tr> elements 	
+--------------------------------------------------------------------------------------------
+$("tr:odd") 	           Selects all odd <tr> elements 	
+--------------------------------------------------------------------------------------------
+
+
+Note: Use our 'jQuery Selector Tester' to demonstrate the different selectors.
+----
+
+For a complete reference of all the jQuery selectors, please go to our jQuery 
+Selectors Reference.
+
+Selector 	        Example 	      Selects
+---------           --------          --------
+--------------------------------------------------------------------------------------------
+* 	                  $("*") 	                  All elements
+--------------------------------------------------------------------------------------------
+#id 	              $("#lastname") 	          The element with id="lastname"
+--------------------------------------------------------------------------------------------
+.class 	              $(".intro") 	              All elements with class="intro"
+--------------------------------------------------------------------------------------------
+.class,.class 	      $(".intro,.demo") 	      All elements with the class "intro" or 
+                                                  "demo
+--------------------------------------------------------------------------------------------
+element 	          $("p") 	                  All <p> elements
+--------------------------------------------------------------------------------------------
+el1,el2,el3 	      $("h1,div,p") 	          All <h1>, <div> and <p> elements
+--------------------------------------------------------------------------------------------  	  	 
+:first 	              $("p:first") 	              The first <p> element
+--------------------------------------------------------------------------------------------
+:last 	              $("p:last") 	              The last <p> element
+--------------------------------------------------------------------------------------------
+:even 	              $("tr:even") 	              All even <tr> elements
+--------------------------------------------------------------------------------------------
+:odd 	              $("tr:odd") 	              All odd <tr> elements
+--------------------------------------------------------------------------------------------
+:first-child 	      $("p:first-child") 	      All <p> elements that are the first 
+                                                  child of their parent
+--------------------------------------------------------------------------------------------
+:first-of-type 	      ("p:first-of-type") 	      All <p> elements that are the first <p>
+                                                  element of their parent
+--------------------------------------------------------------------------------------------
+:last-child 	      $("p:last-child") 	      All <p> elements that are the last child
+                                                  of their parent
+--------------------------------------------------------------------------------------------
+:last-of-type 	      $("p:last-of-type") 	      All <p> elements that are the last <p> 
+                                                  element of their parent
+--------------------------------------------------------------------------------------------
+:nth-child(n) 	      $("p:nth-child(2)") 	      All <p> elements that are the 2nd child
+                                                  of their parent
+--------------------------------------------------------------------------------------------
+:nth-last-child(n)    $("p:nth-last-child(2)")    All <p> elements that are the 2nd child 
+                                                  of their parent, counting from the last 
+                                                  child
+--------------------------------------------------------------------------------------------
+:nth-of-type(n) 	  $("p:nth-of-type(2)") 	  All <p> elements that are the 2nd <p> 
+                                                  element of their parent
+--------------------------------------------------------------------------------------------
+:nth-last-of-type(n)  $("p:nth-last-of-type(2)")  All <p> elements that are the 2nd <p> 
+                                                  element of their parent, counting from 
+                                                  the last child
+--------------------------------------------------------------------------------------------
+:only-child 	      $("p:only-child") 	      All <p> elements that are the only child 
+                                                  of their parent
+--------------------------------------------------------------------------------------------
+:only-of-type 	      $("p:only-of-type") 	      All <p> elements that are the only child,
+                                                  of its type, of their parent
+--------------------------------------------------------------------------------------------
+parent > child 	      $("div > p") 	              All <p> elements that are a direct child
+                                                  of a <div> element
+--------------------------------------------------------------------------------------------
+parent descendant 	  $("div p") 	              All <p> elements that are descendants of
+                                                  a <div> element
+--------------------------------------------------------------------------------------------
+element + next 	      $("div + p") 	              The <p> element that are next to each 
+                                                  <div> elements
+--------------------------------------------------------------------------------------------
+element ~ siblings 	  $("div ~ p") 	              All <p> elements that are siblings of a 
+                                                  <div> element
+--------------------------------------------------------------------------------------------
+:eq(index) 	          $("ul li:eq(3)") 	          The fourth element in a list (index 
+                                                  starts at 0)
+--------------------------------------------------------------------------------------------
+:gt(no) 	          $("ul li:gt(3)") 	          List elements with an index greater than
+                                                   3
+--------------------------------------------------------------------------------------------
+:lt(no) 	          $("ul li:lt(3)") 	          List elements with an index less than 3
+--------------------------------------------------------------------------------------------
+:not(selector) 	      $("input:not(:empty)") 	  All input elements that are not empty
+--------------------------------------------------------------------------------------------
+:header 	          $(":header") 	              All header elements <h1>, <h2> ...
+--------------------------------------------------------------------------------------------
+:animated 	          $(":animated") 	          All animated elements
+--------------------------------------------------------------------------------------------
+:focus 	              $(":focus") 	              The element that currently has focus
+--------------------------------------------------------------------------------------------
+:contains(text) 	  $(":contains('Hello')") 	  All elements which contains the text 
+                                                  "Hello"
+--------------------------------------------------------------------------------------------
+:has(selector) 	      $("div:has(p)") 	          All <div> elements that have a <p> 
+                                                  element
+--------------------------------------------------------------------------------------------
+:empty 	              $(":empty") 	              All elements that are empty
+--------------------------------------------------------------------------------------------
+:parent 	          $(":parent") 	              All elements that are a parent of 
+                                                  another element
+--------------------------------------------------------------------------------------------
+:hidden 	          $("p:hidden") 	          All hidden <p> elements
+--------------------------------------------------------------------------------------------
+:visible 	          $("table:visible") 	      All visible tables
+--------------------------------------------------------------------------------------------
+:root 	              $(":root") 	              The document's root element
+--------------------------------------------------------------------------------------------
+:lang(language) 	  $("p:lang(de)") 	          All <p> elements with a lang attribute 
+                                                  value starting with "de"
+--------------------------------------------------------------------------------------------
+[attribute] 	      $("[href]") 	              All elements with a href attribute
+--------------------------------------------------------------------------------------------
+[attribute=value] 	  $("[href='default.htm']")   All elements with a href attribute value
+                                                  equal to "default.htm"
+--------------------------------------------------------------------------------------------
+[attribute!=value] 	  $("[href!='default.htm']")  All elements with a href attribute value 
+                                                  NOT equal to "default.htm"
+--------------------------------------------------------------------------------------------
+[attribute$=value] 	  $("[href$='.jpg']") 	      All elements with a href attribute value
+                                                  ending with ".jpg"
+--------------------------------------------------------------------------------------------
+[attribute|=value] 	  $("[title|='Tomorrow']") 	  All elements with a title attribute value
+                                                  equal to 'Tomorrow', or starting with 
+                                                  'Tomorrow' followed by a hyphen
+--------------------------------------------------------------------------------------------
+[attribute^=value] 	  $("[title^='Tom']") 	      All elements with a title attribute value
+                                                  starting with "Tom"
+--------------------------------------------------------------------------------------------
+[attribute~=value] 	  $("[title~='hello']") 	  All elements with a title attribute value
+                                                  containing the specific word "hello"
+--------------------------------------------------------------------------------------------
+[attribute*=value] 	  $("[title*='hello']") 	  All elements with a title attribute value
+                                                  containing the word "hello"
+--------------------------------------------------------------------------------------------
+:input 	              $(":input") 	              All input elements
+--------------------------------------------------------------------------------------------
+:text 	              $(":text") 	              All input elements with type="text"
+--------------------------------------------------------------------------------------------
+:password 	          $(":password") 	          All input elements with type="password"
+--------------------------------------------------------------------------------------------
+:radio 	              $(":radio") 	              All input elements with type="radio"
+--------------------------------------------------------------------------------------------
+:checkbox 	          $(":checkbox") 	          All input elements with type="checkbox"
+--------------------------------------------------------------------------------------------
+:submit 	          $(":submit") 	              All input elements with type="submit"
+--------------------------------------------------------------------------------------------
+:reset 	              $(":reset") 	              All input elements with type="reset"
+--------------------------------------------------------------------------------------------
+:button 	          $(":button") 	              All input elements with type="button"
+--------------------------------------------------------------------------------------------
+:image 	              $(":image") 	              All input elements with type="image"
+--------------------------------------------------------------------------------------------
+:file 	              $(":file") 	              All input elements with type="file"
+--------------------------------------------------------------------------------------------
+:enabled 	          $(":enabled") 	          All enabled input elements
+--------------------------------------------------------------------------------------------
+:disabled 	          $(":disabled") 	          All disabled input elements
+--------------------------------------------------------------------------------------------
+:selected 	          $(":selected") 	          All selected input elements
+--------------------------------------------------------------------------------------------
+:checked 	          $(":checked") 	          All checked input elements
+------------------------------------------------------------------------------------------->
+
+    </body>
+</html>

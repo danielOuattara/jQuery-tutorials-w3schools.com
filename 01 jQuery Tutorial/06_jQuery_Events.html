@@ -1,0 +1,414 @@
+<!----------------------------------------------------
+Daniel OUATTARA- daniel.ouattara_AT_gmx.com
+05 06 2020
+jQuery Tutorial : https://www.w3schools.com/jquery/
+----------------------------------------------------->
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <title>jQuery Event Methods</title>
+    </head>
+    <body>
+        <h1>jQuery Event Methods.</h1><hr/>
+
+<!-- jQuery is tailor-made to respond to events in an HTML page.
+
+
+What are Events ?
+==================
+
+All the different visitors' actions that a web page can respond to are called events.
+
+An event represents the precise moment when something happens:
+    > moving a mouse over an element
+    > selecting a radio button
+    > clicking on an element ...
+
+The term "fires/fired" is often used with events. Example: "The keypress event 
+is fired, the moment you press a key".
+
+Here are some common DOM events:
+
+Mouse Events 	  Keyboard Events 	  Form Events 	  Document/Window Events
+-------------   ---------------     -----------     ----------------------
+click 	        keypress 	          submit 	        load
+--------------------------------------------------------------------------
+dblclick 	      keydown 	          change 	        resize
+--------------------------------------------------------------------------
+mouseenter 	    keyup 	            focus 	        scroll
+--------------------------------------------------------------------------
+mouseleave 	                        blur 	          unload
+--------------------------------------------------------------------------
+  
+  
+jQuery Syntax For Event Methods
+==================================
+
+In jQuery, most DOM events have an equivalent jQuery method.
+
+ > To assign a click event to all paragraphs on a page, you can do this:
+____________________
+$("p").click();
+____________________
+
+
+ > The next step is to define what should happen when the event fires. You must 
+   pass a function to the event:
+______________________________
+$("p").click(function(){
+  // action goes here!!
+});
+______________________________
+
+
+
+Commonly Used jQuery Event Methods
+===================================
+
+
+$(document).ready() method allows us to execute a function when the document is 
+------------------- fully loaded. 
+
+
+click(): method attaches an event handler function to an HTML element.
+-------  is executed when the user clicks on the HTML element.              -->
+
+    <p id="p_one">p1: Click to hide me</p>
+    <script>
+      $(document).ready(function(){
+        $('#p_one').click(function(){
+          $(this).hide();
+        });
+      });
+    </script>
+
+
+<!-- dblclick(): method attaches an event handler function to an HTML element.
+            is executed when the user double-clicks on the HTML element:     -->
+
+    <p id="p_two">p2:Click to hide me</p>
+    <script>
+      $(document).ready(function(){
+        $('#p_two').dblclick(function(){
+          $(this).hide();
+        });
+      });
+    </script>
+
+<!-- mouseenter(): method attaches an event handler function to an HTML element.
+              is executed when the mouse pointer enters the HTML element:     -->
+
+    <p id="p_three" style="background-color: rgb(255, 208, 121);">
+      p3: Mouse enter to see messsage</p>
+    <script>
+      $(document).ready(function(){
+        $('#p_three').mouseenter(function(){
+          alert("you entered p3 !")
+        });
+      })
+    </script>  
+
+<!--mouseleave(): method attaches an event handler function to an HTML element.
+              is executed when the mouse pointer leaves the HTML element:     -->
+
+    <p id="p_four" style="background-color: rgb(195, 246, 255);">
+      p4: Mouse leave to see a messsage</p>
+    <script>
+      $(document).ready(function(){
+        $('#p_four').mouseleave(function(){
+          alert("you mouse leave p4 !")
+        });
+      })
+    </script>
+
+
+<!--mousedown(): attaches an event handler function to an HTML element.
+                 is executed, when the left, middle or right mouse button is pressed 
+                 down, while the mouse is over the HTML element:                 -->
+
+    <p id="p_five" style="background-color: rgb(195, 255, 195);">
+      p5: Mouse down to see a messsage</p>
+    <script>
+      $(document).ready(function(){
+        $('#p_five').mousedown(function(){
+          alert("you mouse down on p5 !")
+        });
+      })
+    </script>
+         
+<!--mouseup(): attaches an event handler function to an HTML element.
+              is executed, when the left, middle or right mouse button 
+              is released, while the mouse is over the HTML element:                        -->
+
+    <p id="p_six" style="background-color: rgb(255, 195, 195);">
+      p6: Mouse leave to see a messsage</p>
+    <script>
+      $(document).ready(function(){
+        $('#p_six').mouseup(function(){
+          alert("you mouse up on p6 !")
+        });
+      })
+    </script>
+    
+
+<!--hover(): takes two functions and is a combination of the mouseenter() and 
+             mouseleave() methods.
+             The first function is executed when the mouse enters the HTML element, 
+             and the second function is executed when the mouse leaves the HTML 
+             element:                                                            -->
+
+
+    <p id="p_seven" style="background-color: rgb(195, 196, 255);">
+      p7: hover on p7 for a messsage</p>
+    <script>
+      $(document).ready(function(){
+        $('#p_seven').hover(
+          function(){
+            alert("Hello, you entered p7 !");
+          },
+          function(){
+            alert("Bye, You leaved p7")
+          });
+      });
+    </script>
+          
+          
+<!--focus(): attaches an event handler function to an HTML form field.
+             function is executed when the form field gets focus:             -->
+
+    <label for="input1" name="input1">Enter your Name: </label>
+    <input type="text" id="input1">
+
+    <script>
+      $(document).ready(function(){
+        $("#input1").focus(function(){
+          $(this).css("background-color" , "#cccccc");
+        });
+      });
+    </script>
+
+
+<!--blur(): attaches an event handler function to an HTML form field.
+            is executed when the form field loses focus:                      --> 
+
+    <script>
+      $(document).ready(function(){
+        $("#input1").blur(function(){
+          $(this).css("background-color", "#ffffff");
+        });
+      });
+    </script>
+
+
+<!--on(): attaches one or more event handlers for the selected elements.
+
+ -> Attach one event handler to a <p> element:                                 -->
+
+    <p id="p_height" style="background-color: rgb(255, 222, 195);">
+      p8: click to hide</p>
+    <script>
+      $(document).ready(function(){
+        $('#p_height').on("click", function(){
+          $(this).hide();
+        });
+      });
+          
+    </script>
+
+ <!-- Attach multiple event handlers to a <p> element:  -->
+
+
+    <p id="p_nine">p9: click to hide</p>
+
+    <script>
+      $(document).ready(function(){
+        $('#p_nine').on({
+          mouseenter: function(){
+            $(this).css("background-color", "orange");
+          },
+          mouseleave: function(){
+            $(this).css("background-color", "lightgreen");
+          },
+          click: function(){
+            $(this).css("background-color", "yellow");
+          }
+        });
+      });
+          
+    </script>
+
+
+<!-- jQuery Event Methods
+==========================
+
+Event methods trigger or attach a function to an event handler for the 
+selected elements.
+
+The following table lists all the jQuery methods used to handle events.
+--------------------------------------------------------------------------------------
+Method / Property 	                    Description
+--------------------------------------------------------------------------------------
+bind() 	                                Deprecated in version 3.0. Use the on() 
+                                        method instead. Attaches event handlers 
+                                        to elements
+--------------------------------------------------------------------------------------
+blur()*	                                Attaches/Triggers the blur event
+--------------------------------------------------------------------------------------
+change()*	                              Attaches/Triggers the change event
+--------------------------------------------------------------------------------------
+click()*	                              Attaches/Triggers the click event
+--------------------------------------------------------------------------------------
+dblclick()*	                            Attaches/Triggers the double click event
+--------------------------------------------------------------------------------------
+delegate() 	                            Deprecated in version 3.0. Use the on() 
+                                        method instead. Attaches a handler to 
+                                        current, or future, specified child 
+                                        elements of the matching elements
+--------------------------------------------------------------------------------------
+die() 	                                Removed in version 1.9. Removes all event 
+                                        handlers added with the live() method
+--------------------------------------------------------------------------------------
+error() 	                              Removed in version 3.0. Attaches/Triggers 
+                                        the error event
+--------------------------------------------------------------------------------------
+event.currentTarget 	                  The current DOM element within the event 
+                                        bubbling phase
+--------------------------------------------------------------------------------------
+event.data 	                            Contains the optional data passed to an 
+                                        event method when the current executing 
+                                        handler is bound
+--------------------------------------------------------------------------------------
+event.delegateTarget 	                  Returns the element where the 
+                                        currently-called jQuery event handler was
+                                        attached
+--------------------------------------------------------------------------------------
+event.isDefaultPrevented() 	            Returns whether event.preventDefault() was
+                                        called for the event object
+--------------------------------------------------------------------------------------
+event.isImmediatePropagationStopped() 	Returns whether event.stopImmediatePropagation()
+                                        was called for the event object
+--------------------------------------------------------------------------------------
+event.isPropagationStopped() 	          Returns whether event.stopPropagation() was
+                                        called for the event object
+--------------------------------------------------------------------------------------
+event.namespace 	                      Returns the namespace specified when the 
+                                        event was triggered
+--------------------------------------------------------------------------------------
+event.pageX 	                          Returns the mouse position relative to the 
+                                        left edge of the document
+--------------------------------------------------------------------------------------
+event.pageY 	                          Returns the mouse position relative to the 
+                                        top edge of the document
+--------------------------------------------------------------------------------------
+event.preventDefault() 	                Prevents the default action of the event
+--------------------------------------------------------------------------------------
+event.relatedTarget 	                  Returns which element being entered or exited
+                                        on mouse movement
+--------------------------------------------------------------------------------------
+event.result 	                          Contains the last/previous value returned 
+                                        by an event handler triggered by the 
+                                        specified event
+--------------------------------------------------------------------------------------
+event.stopImmediatePropagation() 	      Prevents other event handlers from being 
+                                        called
+--------------------------------------------------------------------------------------
+event.stopPropagation() 	              Prevents the event from bubbling up the 
+                                        DOM tree, preventing any parent handlers 
+                                        from being notified of the event
+--------------------------------------------------------------------------------------
+event.target 	                          Returns which DOM element triggered the event
+--------------------------------------------------------------------------------------
+event.timeStamp 	                      Returns the number of milliseconds since 
+                                        January 1, 1970, when the event is triggered
+--------------------------------------------------------------------------------------
+event.type 	                            Returns which event type was triggered
+--------------------------------------------------------------------------------------
+event.which 	                          Returns which keyboard key or mouse button 
+                                        was pressed for the event
+--------------------------------------------------------------------------------------
+focus()*	                              Attaches/Triggers the focus event
+--------------------------------------------------------------------------------------
+focusin() 	                            Attaches an event handler to the focusin event
+--------------------------------------------------------------------------------------
+focusout() 	                            Attaches an event handler to the focusout event
+--------------------------------------------------------------------------------------
+hover() 	                              Attaches two event handlers to the hover event
+--------------------------------------------------------------------------------------
+keydown()*	                            Attaches/Triggers the keydown event
+--------------------------------------------------------------------------------------
+keypress()*	                            Attaches/Triggers the keypress event
+--------------------------------------------------------------------------------------
+keyup()*	                              Attaches/Triggers the keyup event
+--------------------------------------------------------------------------------------
+live() 	                                Removed in version 1.9. Adds one or more 
+                                        event handlers to current, or future, 
+                                        selected elements
+--------------------------------------------------------------------------------------
+load()*	                                Removed in version 3.0. Attaches an event 
+                                        handler to the load event
+--------------------------------------------------------------------------------------
+mousedown() 	                          Attaches/Triggers the mousedown event
+--------------------------------------------------------------------------------------
+mouseenter()*	                          Attaches/Triggers the mouseenter event
+--------------------------------------------------------------------------------------
+mouseleave()*	                          Attaches/Triggers the mouseleave event
+--------------------------------------------------------------------------------------
+mousemove() 	                          Attaches/Triggers the mousemove event
+--------------------------------------------------------------------------------------
+mouseout() 	                            Attaches/Triggers the mouseout event
+--------------------------------------------------------------------------------------
+mouseover() 	                          Attaches/Triggers the mouseover event
+--------------------------------------------------------------------------------------
+mouseup() 	                            Attaches/Triggers the mouseup event
+--------------------------------------------------------------------------------------
+off() 	                                Removes event handlers attached with 
+                                        the on() method
+--------------------------------------------------------------------------------------
+on() 	                                  Attaches event handlers to elements
+--------------------------------------------------------------------------------------
+one() 	                                Adds one or more event handlers to 
+                                        selected elements. This handler can only 
+                                        be triggered once per element
+--------------------------------------------------------------------------------------
+$.proxy() 	                            Takes an existing function and returns 
+                                        a new one with a particular context
+--------------------------------------------------------------------------------------
+ready()*	                              Specifies a function to execute when the 
+                                        DOM is fully loaded
+--------------------------------------------------------------------------------------
+resize()*	                              Attaches/Triggers the resize event
+--------------------------------------------------------------------------------------
+scroll()*	                              Attaches/Triggers the scroll event
+--------------------------------------------------------------------------------------
+select() 	                              Attaches/Triggers the select event
+--------------------------------------------------------------------------------------
+submit()*	                              Attaches/Triggers the submit event
+--------------------------------------------------------------------------------------
+toggle() 	                              Removed in version 1.9. Attaches two or more 
+                                        functions to toggle between for the click event
+--------------------------------------------------------------------------------------
+trigger() 	                            Triggers all events bound to the selected elements
+--------------------------------------------------------------------------------------
+triggerHandler() 	                      Triggers all functions bound to a specified 
+                                        event for the selected elements
+--------------------------------------------------------------------------------------
+unbind() 	                              Deprecated in version 3.0. Use the off() method 
+                                        instead. Removes an added event handler from 
+                                        selected elements
+--------------------------------------------------------------------------------------
+undelegate() 	                          Deprecated in version 3.0. Use the off() method 
+                                        instead. Removes an event handler to selected 
+                                        elements, now or in the future
+--------------------------------------------------------------------------------------
+unload() 	                               Removed in version 3.0. Attaches an event 
+                                         handler to the unload event 
+-------------------------------------------------------------------------------------->
+
+
+</body>
+
+</html>

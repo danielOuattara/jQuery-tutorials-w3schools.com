@@ -1,0 +1,160 @@
+<!----------------------------------------------------
+Daniel OUATTARA- daniel.ouattara_AT_gmx.com
+08 07 2020
+jQuery Tutorial : https://www.w3schools.com/jquery/
+----------------------------------------------------->
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <title>jQuery Effects - Sliding</title>
+    </head>
+    <body>
+        <h1>jQuery Effects - Sliding.</h1><hr/>
+
+
+<!-- jQuery Sliding Methods
+============================
+
+With jQuery you can create a sliding effect on elements.
+
+jQuery has the following slide methods:
+
+   > slideDown()
+   > slideUp()
+   > slideToggle()
+
+
+jQuery slideDown() Method
+==========================
+
+The jQuery 'slideDown()' method is used to slide down an element.
+
+Syntax:
+--------
+$(selector).slideDown([speed], [callback]);
+
+The optional speed parameter specifies the duration of the effect. 
+It can take the following values: "slow", "fast", or milliseconds.
+
+The optional callback parameter is a function to be executed after 
+the sliding completes.
+
+The following example demonstrates the 'slideDown()' method: -->
+
+      <style>
+          #panel, #flip {
+              padding: 5px;
+              text-align: center;
+              background-color: #e5eecc;
+              border: 1px solid #c3c3C3;
+          }
+
+          #panel {
+              display: none;
+              padding: 50px;
+          }
+      </style>
+      <div id="flip">Click to slide down an hidden panel</div>
+      <div id="panel">Hello world!</div>
+
+      <script>
+          $(document).ready(function(){
+              $('#flip').click(function(){
+                  $('#panel').slideDown("slow");
+              });
+          });
+      </script><br/><hr/><br/> 
+
+
+<!-- jQuery slideUp() Method
+============================
+
+The jQuery slideUp() method is used to slide up an element.
+
+Syntax:
+-------
+$(selector).slideUp([speed], [callback]);
+
+The optional speed parameter specifies the duration of the effect. 
+It can take the following values: "slow", "fast", or milliseconds.
+
+The optional callback parameter is a function to be executed after the sliding completes.
+
+The following example demonstrates the 'slideUp()' method:            -->
+
+
+        <style>
+            #panel2, #flip2 {
+                padding: 5px;
+                text-align: center;
+                background-color: #e5eecc;
+                border: 1px solid #c3c3C3;
+            }
+
+            #panel2 {
+                padding: 50px;
+            }
+        </style>
+        <div id="flip2">Click to slide up an the panel below</div>
+        <div id="panel2">Hello world!</div>
+
+        <script>
+            $(document).ready(function(){
+                $('#flip2').click(function(){
+                    $('#panel2').slideUp("slow");
+                });
+            });
+        </script><br/><hr/><br/>
+
+
+<!-- jQuery slideToggle() Method
+================================
+
+The jQuery 'slideToggle()' method toggles between the 'slideDown()' and 
+'slideUp()' methods.
+
+If the elements have been slid down, 'slideToggle()' will slide them up.
+If the elements have been slid up, 'slideToggle()' will slide them down.
+
+Syntax:
+-------
+$(selector).slideToggle([speed],[callback]);
+
+The optional speed parameter can take the following values: "slow", "fast", milliseconds.
+
+The optional callback parameter is a function to be executed after the sliding completes.
+
+The following example demonstrates the 'slideToggle()' method:                       -->
+
+  
+        <style>
+            #panel3, #flip3 {
+                padding: 5px;
+                text-align: center;
+                background-color: #e5eecc;
+                border: 1px solid #c3c3C3;
+            }
+
+            #panel3 {
+                padding: 50px;
+            }
+        </style>
+        <div id="flip3">Click to slide up an the panel below</div>
+        <div id="panel3">Hello world!</div>
+
+        <script>
+            $(document).ready(function(){
+                $('#flip3').click(function(){
+                    $('#panel3').slideToggle("slow");
+                });
+            });
+        </script>
+
+
+</body>
+
+</html>

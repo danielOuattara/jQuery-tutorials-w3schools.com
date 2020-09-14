@@ -1,0 +1,226 @@
+<!----------------------------------------------------
+Daniel OUATTARA- daniel.ouattara_AT_gmx.com
+08 07 2020
+jQuery Tutorial : https://www.w3schools.com/jquery/
+----------------------------------------------------->
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <title>jQuery Effects - Fading</title>
+    </head>
+    <body>
+        <h1>jQuery Effects - Fading.</h1><hr/>
+
+
+<!-- With jQuery you can fade elements in and out of visibility.
+
+
+jQuery Fading Methods
+======================
+
+With jQuery you can fade an element in and out of visibility.
+
+jQuery has the following fade methods:
+
+    > fadeIn()
+    > fadeOut()
+    > fadeToggle()
+    > fadeTo()
+
+
+jQuery fadeIn() Method
+======================
+
+The jQuery 'fadeIn()' method is used to fade in a hidden element.
+
+Syntax:
+-------
+$(selector).fadeIn([speed],[callback]);
+
+The optional 'speed' parameter specifies the duration of the effect. 
+It can take the following values: "slow", "fast", or milliseconds.
+
+The optional 'callback' parameter is a function to be executed after the fading completes.
+
+The following example demonstrates the 'fadeIn()' method with different parameters:-->
+
+      <p>Demonstrate fadeIn() with different parameters.</p>     
+      <button id="button1">Click to Fade in</button><br/><br/>
+      <div id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div><br>
+      <div id="div2" style="width:80px;height:80px;display:none;background-color:green;"></div><br>
+      <div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+
+      <script>
+          $(document).ready(function(){
+              $('#button1').click(function(){
+                  $('#div1').fadeIn();
+                  $('#div2').fadeIn("slow");
+                  $('#div3').fadeIn(2000);
+              });
+          });
+      </script><hr/>
+
+
+<!-- jQuery fadeOut() Method
+============================
+
+The jQuery 'fadeOut()' method is used to fade out a visible element.
+
+Syntax:
+--------
+$(selector).fadeOut([speed],[callback]);
+
+The optional 'speed' parameter specifies the duration of the effect. 
+It can take the following values: "slow", "fast", or milliseconds.
+
+The optional 'callback' parameter is a function to be executed after the fading completes.
+
+The following example demonstrates the fadeOut() method with different parameters: -->
+
+
+        <p>Demonstrate fadeOut() with different parameters.</p>
+        <button id="button2">Click to Fade Out</button><br/><br/>
+        <div id="div4" style="width:80px; height:80px; background-color:red;"></div><br>
+        <div id="div5" style="width:80px; height:80px; background-color:green;"></div><br>
+        <div id="div6" style="width:80px; height:80px; background-color:blue;"></div>
+        
+        <script>
+            $(document).ready(function(){
+                $('#button2').click(function(){
+                    $('#div4').fadeOut();
+                    $('#div5').fadeOut("slow");
+                    $('#div6').fadeOut(2000);
+                });
+            });
+        </script><hr/>
+
+
+<!-- jQuery fadeToggle() Method
+================================
+
+The jQuery 'fadeToggle()' method toggles between the 'fadeIn()' and 'fadeOut()' methods.
+
+If the elements are 'faded out', 'fadeToggle()' will fade them in.
+
+If the elements are 'faded in', 'fadeToggle()' will fade them out.
+
+Syntax:
+-------
+$(selector).fadeToggle([speed],[callback]);
+
+The optional 'speed' parameter specifies the duration of the effect. 
+It can take the following values: "slow", "fast", or milliseconds.
+
+The optional 'callback' parameter is a function to be executed after the fading completes.
+
+The following example demonstrates the 'fadeToggle()' method with different parameters: -->
+
+
+        <p>Demonstrate fadeToggle() with different parameters.</p>
+        <button id="button3">Click to Fade Toggle</button><br/><br/>
+        <div id="div7" style="width:80px; height:80px; background-color:red;"></div><br>
+        <div id="div8" style="width:80px; height:80px; background-color:green;"></div><br>
+        <div id="div9" style="width:80px; height:80px; background-color:blue;"></div>
+
+        <script>
+            $(document).ready(function(){
+                $('#button3').click(function(){
+                    $('#div7').fadeToggle();
+                    $('#div8').fadeToggle("slow");
+                    $('#div9').fadeToggle(2000);
+                });
+            });
+        </script><hr/>
+
+
+<!-- jQuery fadeTo() Method
+===========================
+
+The jQuery 'fadeTo()' method allows fading to a given opacity (value between 0 and 1).
+
+Syntax:
+-------
+$(selector).fadeTo(speed,opacity,[callback]);
+
+The 'required speed' parameter specifies the duration of the effect. 
+It can take the following values: "slow", "fast", or milliseconds.
+
+The 'required opacity' parameter in the 'fadeTo()' method specifies 
+fading to a given opacity (value between 0 and 1).
+
+The 'optional callback' parameter is a function to be executed after the function completes.
+
+The following example demonstrates the fadeTo() method with different parameters: -->
+
+
+        <p>Demonstrate fadeTo() with different parameters.</p>
+        <button id="button4">Click to fadeTo()</button><br/><br/>
+        <div id="div10" style="width:80px; height:80px; background-color:red;"></div><br>
+        <div id="div11" style="width:80px; height:80px; background-color:green;"></div><br>
+        <div id="div12" style="width:80px; height:80px; background-color:blue;"></div>
+
+        <script>
+            $(document).ready(function(){
+                $('#button4').click(function(){
+                    $('#div10').fadeTo("slow", 0.15);
+                    $('#div11').fadeTo("slow", 0.4);
+                    $('#div12').fadeTo("slow", 0.7);
+                });
+            });
+        </script><hr/>
+
+<!-- 
+jQuery Effect Methods
+======================
+
+The following table lists all the jQuery methods for creating animation effects.
+
+Method          Description
+-------         ------------
+------------------------------------------------------------------------------
+animate() 	    Runs a custom animation on the selected elements
+------------------------------------------------------------------------------
+clearQueue()    Removes all remaining queued functions from the selected 
+                elements
+------------------------------------------------------------------------------
+delay() 	    Sets a delay for all queued functions on the selected elements
+------------------------------------------------------------------------------
+dequeue() 	    Removes the next function from the queue, and then executes 
+                the function
+------------------------------------------------------------------------------
+fadeIn() 	    Fades in the selected elements
+------------------------------------------------------------------------------
+fadeOut() 	    Fades out the selected elements
+------------------------------------------------------------------------------
+fadeTo() 	    Fades in/out the selected elements to a given opacity
+------------------------------------------------------------------------------
+fadeToggle()    Toggles between the fadeIn() and fadeOut() methods
+------------------------------------------------------------------------------
+finish() 	    Stops, removes and completes all queued animations for the 
+                selected elements
+------------------------------------------------------------------------------
+hide() 	        Hides the selected elements
+------------------------------------------------------------------------------
+queue() 	    Shows the queued functions on the selected elements
+------------------------------------------------------------------------------
+show() 	        Shows the selected elements
+------------------------------------------------------------------------------
+slideDown()     Slides-down (shows) the selected elements
+------------------------------------------------------------------------------
+slideToggle()   Toggles between the slideUp() and slideDown() methods
+------------------------------------------------------------------------------
+slideUp() 	    Slides-up (hides) the selected elements
+------------------------------------------------------------------------------
+stop() 	        Stops the currently running animation for the selected 
+                elements
+------------------------------------------------------------------------------
+toggle() 	   Toggles between the hide() and show() methods
+-----------------------------------------------------------------------------> -->
+
+</body>
+
+</html>
